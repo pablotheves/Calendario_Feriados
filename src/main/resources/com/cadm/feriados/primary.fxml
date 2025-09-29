@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="434.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cadm.feriados.PrimaryController">
+   <children>
+      <Pane layoutX="2.0" layoutY="2.0" prefHeight="117.0" prefWidth="594.0" style="-fx-border-color: black;">
+         <children>
+            <Text layoutX="297.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total de dias úteis:" />
+            <Label fx:id="diasUteis" layoutX="416.0" layoutY="37.0">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="txtDataFinal" layoutX="98.0" layoutY="75.0" />
+            <Button fx:id="btnCalc" layoutX="297.0" layoutY="75.0" mnemonicParsing="false" onAction="#calc" text="Calcular" />
+         </children>
+      </Pane>
+      <Text layoutX="39.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data Inicial" />
+      <Text layoutX="42.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data Final" />
+      <Pane layoutX="2.0" layoutY="124.0" prefHeight="301.0" prefWidth="594.0" style="-fx-border-color: black;">
+         <children>
+            <TableView fx:id="tableViewFeriados" layoutX="7.0" layoutY="7.0" onMouseClicked="#tbFeriadoClique" prefHeight="177.0" prefWidth="581.0" style="-fx-border-color: black;">
+              <columns>
+                <TableColumn fx:id="tableColumnCod" prefWidth="100.6666259765625" text="ID" />
+                <TableColumn fx:id="tableColumnData" prefWidth="176.6666259765625" text="Data" />
+                  <TableColumn fx:id="tableColumnNome" minWidth="0.0" prefWidth="226.0" text="Descricao" />
+                  <TableColumn fx:id="tableColumnTipo" maxWidth="222.33331298828125" minWidth="-1.0" prefWidth="76.66668701171875" text="tipo" />
+              </columns>
+            </TableView>
+            <Button fx:id="btnSalvar" layoutX="433.0" layoutY="232.0" mnemonicParsing="false" onAction="#btSalvarFeriadoClique" text="Salvar" />
+            <Button fx:id="btnDeletar" layoutX="518.0" layoutY="232.0" mnemonicParsing="false" onAction="#btDeletarFeriadoClique" text="Deletar" />
+            <GridPane layoutX="14.0" layoutY="199.0" prefHeight="90.0" prefWidth="414.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="136.0" minWidth="10.0" prefWidth="66.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="259.0" minWidth="10.0" prefWidth="181.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="218.0" minWidth="10.0" prefWidth="196.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Data" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Descricao" GridPane.rowIndex="1" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo" GridPane.rowIndex="2" />
+                  <TextField fx:id="tipo" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="txtDescricao" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="lblErroData" GridPane.columnIndex="2" />
+                  <Label fx:id="lblErroNome" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Label fx:id="lblErroTipo" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <DatePicker fx:id="dataFeriado" GridPane.columnIndex="1" />
+               </children>
+            </GridPane>
+         </children>
+      </Pane>
+      <DatePicker fx:id="txtDataInicial" layoutX="102.0" layoutY="38.0" />
+   </children>
+</Pane>
